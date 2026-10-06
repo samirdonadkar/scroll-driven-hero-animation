@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Scroll-driven hero section animation using HTML, CSS, JavaScript and GSAP.">
+  <title>ITZFIZZ — Scroll Driven Hero</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="ITZFIZZ home">ITZFIZZ<span>.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#experience">Experience</a>
+      <a href="#stats">Stats</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="header-btn" href="#about">Explore</a>
+  </header>
+
+  <main>
+    <!-- Hero is intentionally taller than the viewport so scroll controls the animation. -->
+    <section class="hero" id="experience">
+      <div class="hero-sticky">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-copy">
+          <p class="eyebrow reveal">CREATIVE DIGITAL EXPERIENCE</p>
+          <h1 class="hero-title" aria-label="WELCOME ITZFIZZ">
+            <span class="title-line">W E L C O M E</span>
+            <span class="title-line accent-line">I T Z F I Z Z</span>
+          </h1>
+          <p class="hero-description reveal">
+            Scroll to transform the experience. A smooth, responsive hero animation
+            controlled entirely by your scroll position.
+          </p>
+        </div>
+
+        <div class="visual-wrap" aria-hidden="true">
+          <div class="glow"></div>
+          <div class="speed-lines"></div>
+          <div class="car-shadow"></div>
+
+          <!-- Self-contained SVG visual: no image download required. -->
+          <svg class="car" viewBox="0 0 900 420" role="img">
+            <defs>
+              <linearGradient id="body" x1="0" x2="1">
+                <stop offset="0" stop-color="#ff3d3d"/>
+                <stop offset="0.5" stop-color="#ff6b35"/>
+                <stop offset="1" stop-color="#ffd166"/>
+              </linearGradient>
+              <linearGradient id="glass" x1="0" x2="1">
+                <stop offset="0" stop-color="#101827"/>
+                <stop offset="1" stop-color="#394b63"/>
+              </linearGradient>
+              <filter id="shadow">
+                <feDropShadow dx="0" dy="18" stdDeviation="15" flood-opacity=".35"/>
+              </filter>
+            </defs>
+
+            <g filter="url(#shadow)">
+              <path class="car-body" fill="url(#body)"
+                d="M105 285 C125 240 175 213 252 203 L328 130
+                   C354 103 390 88 433 88 L560 88
+                   C610 89 649 109 683 144 L738 201
+                   C782 210 820 233 838 271 L850 300
+                   C854 316 842 328 825 328 L90 328
+                   C72 328 62 314 72 299 Z"/>
+              <path fill="url(#glass)" d="M292 196 L351 137 C371 117 397 106 431 106
+                L471 106 L471 196 Z"/>
+              <path fill="url(#glass)" d="M486 106 L557 106 C596 107 623 122 651 151
+                L691 196 L486 196 Z"/>
+              <path fill="#151b26" d="M225 214 H705 L724 236 H197 Z" opacity=".65"/>
+              <path fill="#fff" d="M107 277 H171 L151 302 H96 Z" opacity=".8"/>
+              <path fill="#ffef9a" d="M760 257 H826 L838 281 H767 Z" opacity=".9"/>
+              <path fill="#111827" d="M172 306 H741 V329 H172 Z"/>
+              <circle cx="235" cy="326" r="55" fill="#0d1117"/>
+              <circle cx="235" cy="326" r="28" fill="#737b87"/>
+              <circle cx="235" cy="326" r="12" fill="#d9dee5"/>
+              <circle cx="685" cy="326" r="55" fill="#0d1117"/>
+              <circle cx="685" cy="326" r="28" fill="#737b87"/>
+              <circle cx="685" cy="326" r="12" fill="#d9dee5"/>
+              <path d="M338 231 H560" stroke="#fff" stroke-width="4" opacity=".45"/>
+              <path d="M358 250 H545" stroke="#111827" stroke-width="8" opacity=".45"/>
+            </g>
+          </svg>
+
+          <div class="scroll-hint reveal">
+            <span>SCROLL TO EXPLORE</span>
+            <span class="scroll-arrow">↓</span>
+          </div>
+        </div>
+
+        <div class="progress-bar" aria-hidden="true">
+          <span id="progress"></span>
+        </div>
+
+        <div class="stats" id="stats">
+          <article class="stat reveal">
+            <strong><span data-count="98">0</span>%</strong>
+            <span>Performance</span>
+          </article>
+          <article class="stat reveal">
+            <strong><span data-count="24">0</span>+</strong>
+            <span>Experiences</span>
+          </article>
+          <article class="stat reveal">
+            <strong><span data-count="4">0</span>x</strong>
+            <span>Smoother Motion</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="about">
+      <div class="content-inner">
+        <p class="eyebrow">THE IDEA</p>
+        <h2>Motion that follows your story.</h2>
+        <p>
+          This section demonstrates scroll-linked interaction using transform-based
+          animation. The main visual responds to scroll progress instead of playing
+          on a timer, creating a more controlled and premium user experience.
+        </p>
+        <div class="feature-grid">
+          <div><span>01</span><h3>Scroll-linked</h3><p>Animation progress is calculated from the scroll position.</p></div>
+          <div><span>02</span><h3>Performant</h3><p>Transforms are used to minimize layout work during scrolling.</p></div>
+          <div><span>03</span><h3>Responsive</h3><p>The layout adapts to desktop, tablet and mobile screens.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing-section">
+      <p>END OF EXPERIENCE</p>
+      <h2>THANK YOU<span>.</span></h2>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
